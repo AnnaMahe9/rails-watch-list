@@ -7,16 +7,11 @@
 
 
 <h1></h1>
+<div class="container d-flex justify-content-evenly">
 <% @lists.each do |list|%>
-<div class="row-3">
-  <div class="col-3">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      <%= link_to list.name, list_path(list) %>
-    </div>
+  <div class="card-list" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://imgix.ranker.com/user_node_img/91/1804209/original/1804209-photo-u8?auto=format&q=60&fit=fill&fm=pjpg&dpr=2&crop=faces&bg=fff&h=300&w=300)">
+    <%= link_to list.name, list_path(list) %>
   </div>
+  <% end %>
+<a class="btn btn-ghost align-items-center" href="/lists/new">Add a list</a>
 </div>
-
-
-<% end %>
-
-<%= link_to 'Add a list', new_list_path %>
