@@ -1,22 +1,27 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: %i[ show edit update destroy ]
   def index
     @lists = List.all
   end
 
   def show
-    @movie = Movie.new
+    @list = List.find(params[:id])
+    @bookmark = Bookmark.new
   end
 
   def new
     @list = List.new
   end
 
-  private
-
-  def set_list
-    @list = List.find(params[:id])
+  def create
+    @list = List.new(list_params)
+    if @list.save
+      redirect_to list_path(@list)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
+
+  private
 
   # Only allow a list of trusted parameters through.
   def list_params
