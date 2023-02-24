@@ -24,15 +24,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_105102) do
     t.index ["movie_id"], name: "index_bookmarks_on_movie_id"
   end
 
-  create_table "films", force: :cascade do |t|
-    t.string "title"
-    t.text "overview"
-    t.string "poster_url"
-    t.integer "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "lists", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
